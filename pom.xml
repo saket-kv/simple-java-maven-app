@@ -39,7 +39,7 @@
         </execution>
         </executions>
       <configuration>
-        <mainClass></mainClass>
+        <mainClass>com.mycompany.app.Add</mainClass>
         
        </configuration>
     </plugin>
