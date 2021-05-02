@@ -11,7 +11,7 @@ node {
 	echo "app is build"}
 	}
 	stage("Push Image"){
-	docker.withRegistry('https://registry.hub.docker.com','Dockerapp')
+	docker.withRegistry('https://registry.hub.docker.com','jenkins-docker')
 	{
 		app.push("${env.BUILD_NUMBER}")
 	app.push("latest")
