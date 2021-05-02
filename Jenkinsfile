@@ -4,7 +4,7 @@ node {
 		checkout scm
 		}
 	stage('Build Image'){
-	app=docker.build("svsaket/newphp2")
+	app= sudo docker.build("svsaket/newphp2")
 	}
 	stage("Test Image"){
 	app.inside{
