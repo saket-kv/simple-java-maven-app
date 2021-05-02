@@ -11,9 +11,11 @@ node {
 	echo "app is build"}
 	}
 	stage("Push Image"){
-	docker.WithRegistry('https://registry.hub.docker.com','Dockerapp')
+	docker.withRegistry('https://registry.hub.docker.com','Dockerapp')
 	{
+		app.push("${env.BUILD_NUMBER}")
 	app.push("latest")
+		
 	}
 	echo "trying to push"
 	}
