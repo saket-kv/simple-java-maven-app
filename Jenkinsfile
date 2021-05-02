@@ -5,7 +5,7 @@ node {
 		}
 	stage('Build Image'){
 
-sh "./deliver.sh"
+sh "sudo ./deliver.sh"
 	app=docker.build("svsaket/newphp2")
 	}
 	stage("Test Image"){
