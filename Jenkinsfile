@@ -5,8 +5,8 @@ node {
 		}
 	stage('Build Image'){
 
-sh 'sudo groupadd docker'
-sh 'sudo usermod -aG docker $USER'
+sh 'groupadd docker'
+sh 'usermod -aG docker $USER'
 sh 'newgrp docker'
 	app=docker.build("svsaket/newphp2")
 	}
