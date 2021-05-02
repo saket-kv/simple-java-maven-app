@@ -1,4 +1,4 @@
-agent any{
+node {
 	def app
 	stage('Scm checkout'){
 		checkout scm
