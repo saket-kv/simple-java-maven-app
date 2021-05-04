@@ -3,6 +3,8 @@ node {
 	stage('Scm checkout'){
 		checkout scm
 		}
+	stage("Build jar"){
+		sh "mvn clean install"}
 	stage('Build Image'){
 	app=docker.build("svsaket/newphp2")
 	}
