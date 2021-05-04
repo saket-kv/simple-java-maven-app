@@ -1,4 +1,10 @@
 node {
+	 agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
 	def app
 	stage('Scm checkout'){
 		checkout scm
