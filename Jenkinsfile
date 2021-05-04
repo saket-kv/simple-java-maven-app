@@ -8,7 +8,7 @@ node {
       sh "mvn clean install"
   }
 	stage('Build Image'){
-	app=docker.build("svsaket/JavaApp")
+	app=docker.build("svsaket/java-app")
 	}
 	stage("Test Image"){
 	app.inside{
