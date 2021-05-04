@@ -4,10 +4,6 @@ node {
 		checkout scm
 		}
 	stage('Build Image'){
-
-sh 'groupadd docker'
-sh 'usermod -aG docker $USER'
-sh 'newgrp docker'
 	app=docker.build("svsaket/newphp2")
 	}
 	stage("Test Image"){
