@@ -6,10 +6,9 @@ node {
 	stage ('Build') {
     
       sh "mvn clean install"
-   // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
   }
 	stage('Build Image'){
-	app=docker.build("svsaket/newphp2")
+	app=docker.build("svsaket/JavaApp")
 	}
 	stage("Test Image"){
 	app.inside{
