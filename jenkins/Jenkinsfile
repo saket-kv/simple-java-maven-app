@@ -30,18 +30,25 @@ pipeline {
             }
         }
         stage('Build Image'){
-	app=docker.build("svsaket/newjavaapp")
+		steps {
+			app=docker.build("svsaket/newjavaapp")
+			}
 	}
 	stage("Test Image"){
+		steps{
 	app.inside{
 	echo "app is build"}
 	}
+	}
         stage("Push Image"){
+		steps{
 	docker.WithRegistry('https://registry.hub.docker.com','Dockerapp')
 	{
 	app.push("latest")
 	}
+		
 	echo "trying to push"
+	}
 	}
     }
 }
