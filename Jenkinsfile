@@ -1,16 +1,13 @@
 node {
-	 agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
 	def app
 	stage('Scm checkout'){
 		checkout scm
 		}
-	stage("Build jar"){
-		sh "mvn clean install"}
+	stage ('Build') {
+    withMaven {
+      sh "mvn clean install"
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
+  }
 	stage('Build Image'){
 	app=docker.build("svsaket/newphp2")
 	}
